@@ -1,0 +1,4 @@
+/* Explicitly overrides the overlay's grid display when the native hidden state is set. */
+.search-overlay[hidden] {
+  display: none !important;
+}
