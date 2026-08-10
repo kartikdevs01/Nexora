@@ -131,7 +131,6 @@ const createCard = (article, index) => {
       <a
         class="card-link"
         href="${escapeHTML(link)}"
-        target="_blank"
         rel="noopener noreferrer"
         aria-label="Read ${title}"
       ></a>
