@@ -122,7 +122,37 @@ const createCard = (article, index) => {
         <i></i>
       </div>
     `;
+const rssStories = JSON.parse(
+  localStorage.getItem("nexoraRSSStories") || "[]"
+);
 
+const rssStory = {
+  id,
+  title,
+  summary,
+  source,
+  time,
+  category,
+  topic,
+  read,
+  image,
+  url: link
+};
+
+const existingIndex = rssStories.findIndex(
+  item => item.id === id
+);
+
+if (existingIndex >= 0) {
+  rssStories[existingIndex] = rssStory;
+} else {
+  rssStories.push(rssStory);
+}
+
+localStorage.setItem(
+  "nexoraRSSStories",
+  JSON.stringify(rssStories)
+);
   return `
     <article
       class="story-card tone-${tone}"
@@ -130,7 +160,7 @@ const createCard = (article, index) => {
     >
       <a
         class="card-link"
-        href="${escapeHTML(link)}"
+        href="story.html?id=${encodeURIComponent(id)}&rss=1"
         rel="noopener noreferrer"
         aria-label="Read ${title}"
       ></a>
