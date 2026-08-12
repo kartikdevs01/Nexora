@@ -1,1 +1,220 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Nexora — The world, clearly</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/styles.css"><link rel="stylesheet" href="css/classic.css"><link rel="stylesheet" href="css/scene-system.css"></head><body class="scene-page"><header class="topbar classic-bar"><a class="brand text-logo" href="index.html">NEXORA</a><nav class="classic-nav"><a href="index.html">Home</a><a href="#india">India</a><a href="#world">World</a><a href="briefing.html">Daily Briefing</a><a href="about.html">About</a><a href="contact.html">Contact</a><button class="theme-toggle">Light mode</button><button class="icon-button menu-toggle" aria-label="Open menu"><span></span><span></span></button></nav></header><aside class="menu-drawer" aria-hidden="true"><div class="drawer-head"><a class="brand text-logo" href="index.html">NEXORA</a><button class="icon-button menu-close" aria-label="Close menu">×</button></div><nav><a href="index.html">Home</a><a href="#india">India</a><a href="#world">World</a><a href="briefing.html">Daily Briefing</a><a href="category.html">Categories</a><a href="about.html">About Nexora</a><a href="contact.html">Contact</a><a href="settings.html">Settings</a></nav></aside><div class="drawer-shade"></div><main><section class="scene scene-hero" data-scene><div class="scene-inner"><span class="scene-label">Nexora live intelligence</span><h1 class="scene-title">The world,<br><em>clearly.</em></h1><p class="scene-subtitle">A living view of the stories shaping India and the world, drawn from the latest available RSS reporting.</p><div class="hero-actions"><a class="button" href="#featured">Enter the live edition <span>↓</span></a></div><div class="scene-orbit" aria-hidden="true"></div></div></section><section class="scene scene-feature" id="featured" data-scene><div class="scene-inner"><span class="scene-label">Live RSS · Featured signal</span><div class="featured-rss" data-featured-rss hidden></div></div></section><section class="scene scene-india" id="india" data-scene><div class="scene-inner"><div class="section-title"><span class="scene-label">India in focus</span><h2 class="scene-title">The country<br>in motion.</h2><p class="scene-subtitle">The latest reporting from India, arranged as a living editorial scene.</p><a class="text-link" href="category.html?category=India">View all India <span>→</span></a></div><div class="story-grid" data-section="India"></div></div></section><section class="scene scene-world" id="world" data-scene><div class="scene-inner"><span class="scene-label">Beyond borders</span><h2 class="scene-title">The wider<br>world.</h2><p class="scene-subtitle">Global stories shift through layered planes as new signals arrive.</p><div class="story-grid" data-section="World"></div></div></section><section class="scene scene-tech" data-scene><div class="scene-inner"><span class="scene-label">Technology & AI</span><h2 class="scene-title">The future<br>takes shape.</h2><div class="story-grid" data-section="Technology"></div></div></section><section class="scene scene-business" data-scene><div class="scene-inner"><span class="scene-label">Markets & momentum</span><h2 class="scene-title">Business<br>in depth.</h2><div class="story-grid" data-section="Business"></div></div></section><section class="scene scene-final" data-scene><div class="scene-inner"><span class="scene-label">Nexora live feed</span><h2 class="scene-title">Follow the<br><em>signal.</em></h2><p class="scene-subtitle">Every edition evolves as live RSS stories become available.</p><a class="button" href="category.html">Explore all stories <span>→</span></a></div></section></main><footer><div class="footer-brand"><a class="brand text-logo" href="index.html">NEXORA</a><p>Global trends,<br>intelligently organized.</p></div><div class="footer-links"><div><span>Explore</span><a href="#india">India</a><a href="#world">World</a><a href="briefing.html">Daily briefing</a></div><div><span>Company</span><a href="about.html">About</a><a href="contact.html">Contact</a><a href="settings.html">Settings</a></div></div><div class="footer-bottom"><span>© 2026 Nexora, Inc.</span></div></footer><script src="js/data.js"></script><script src="js/app.js"></script><script src="js/scene-system.js"></script><script src="js/live-rss.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>try{var t=JSON.parse(localStorage.getItem('nexoraSettings')||'{}').theme;if(t==='light')document.documentElement.classList.add('light');}catch(e){}</script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nexora — The world, clearly</title>
+<meta name="description" content="Nexora is a cinematic, live global-news edition — India, world, technology and business signals curated in real time.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/classic.css">
+</head>
+<body>
+<div class="loader"><span>N</span></div>
+
+<header class="topbar classic-bar">
+  <a class="brand text-logo" href="index.html" aria-label="Nexora home">NEXORA</a>
+  <nav class="classic-nav" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="#india">India</a>
+    <a href="#world">World</a>
+    <a href="briefing.html">Daily Briefing</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <button class="theme-toggle" aria-pressed="false">Light mode</button>
+    <button class="icon-button search-trigger" aria-label="Search">⌕</button>
+    <button class="icon-button menu-toggle" aria-label="Open menu"><span></span><span></span></button>
+  </nav>
+</header>
+
+<aside class="menu-drawer" aria-hidden="true">
+  <div class="drawer-head">
+    <a class="brand text-logo" href="index.html">NEXORA</a>
+    <button class="icon-button menu-close" aria-label="Close menu">×</button>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="#india">India</a>
+    <a href="#world">World</a>
+    <a href="briefing.html">Daily Briefing</a>
+    <a href="category.html">Categories</a>
+    <a href="about.html">About Nexora</a>
+    <a href="contact.html">Contact</a>
+    <a href="settings.html">Settings</a>
+    <a href="coming-soon.html?feature=Careers">Careers</a>
+  </nav>
+  <p>Global trends,<br><em>intelligently organized.</em></p>
+</aside>
+<div class="drawer-shade"></div>
+
+<main>
+
+  <!-- ============ 1. HERO ============ -->
+  <section class="scene hero-scene" data-scene="hero" data-scene-mode="pin">
+    <div class="scene-pin hero-pin">
+      <div class="hero-field" aria-hidden="true">
+        <div class="hero-grid"></div>
+        <div class="signal-lens">
+          <span class="ring ring-1"></span>
+          <span class="ring ring-2"></span>
+          <span class="ring ring-3"></span>
+          <span class="node node-india">India</span>
+          <span class="node node-world">World</span>
+          <span class="node node-tech">Technology</span>
+          <span class="node node-business">Business</span>
+          <span class="lens-core"></span>
+        </div>
+      </div>
+      <div class="hero-copy">
+        <span class="eyebrow"><b></b>Today's edition — <time id="hero-date"></time></span>
+        <h1>The world,<br><em>clearly.</em></h1>
+        <p>Signals from India and around the world, curated into a calmer, clearer way to stay informed.</p>
+        <div class="hero-actions">
+          <a class="button" href="#latest">Enter the edition <span>↓</span></a>
+          <a class="text-link" href="briefing.html">Today's briefing <span>→</span></a>
+        </div>
+      </div>
+      <div class="hero-meta">
+        <span><strong id="live-count">42</strong> signals live now</span>
+        <span>Updated <strong id="updated-at">just now</strong></span>
+        <span class="scroll-cue">Scroll<i></i></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2. BREAKING / FEATURED ============ -->
+  <section class="scene" data-scene="featured" data-scene-mode="reveal" id="latest">
+    <div class="section-head">
+      <div><span class="eyebrow"><b></b>Breaking now</span><h2>Leading today's edition</h2></div>
+    </div>
+    <div class="featured-panel">
+      <div data-section="Featured"></div>
+    </div>
+  </section>
+
+  <!-- ============ 3. LATEST STORIES ============ -->
+  <section class="scene" data-scene="latest-stories" data-scene-mode="reveal">
+    <div class="section-head">
+      <div><span class="eyebrow">Across the edition</span><h2>Latest stories</h2></div>
+      <a class="text-link" href="category.html">View everything <span>→</span></a>
+    </div>
+    <div class="story-stack" data-section="Latest"></div>
+  </section>
+
+  <!-- ============ 4. INDIA ============ -->
+  <section class="scene split-scene" data-scene="india" data-scene-mode="reveal" id="india">
+    <div class="split-title">
+      <span class="index-mark">01 — India</span>
+      <span class="eyebrow">India, in focus</span>
+      <h2>What's happening<br>in India</h2>
+      <p>Policy, capital and innovation signals shaping India's next chapter.</p>
+      <a class="text-link" href="category.html?category=India">View all India <span>→</span></a>
+      <div style="margin-top:26px"><a class="button compact" href="briefing.html">Today's India briefing <span>→</span></a></div>
+    </div>
+    <div class="story-grid" data-section="India"></div>
+  </section>
+
+  <!-- ============ 5. WORLD ============ -->
+  <section class="scene split-scene reverse" data-scene="world" data-scene-mode="reveal" id="world">
+    <div class="split-title">
+      <span class="index-mark">02 — World</span>
+      <span class="eyebrow">Beyond borders</span>
+      <h2>What's happening<br>in the world</h2>
+      <p>The conversations, capital flows and decisions shaping the wider world.</p>
+      <a class="text-link" href="category.html?category=World">View all world <span>→</span></a>
+    </div>
+    <div class="story-grid" data-section="World"></div>
+  </section>
+
+  <!-- ============ 6. TECHNOLOGY ============ -->
+  <section class="scene split-scene tech-scene" data-scene="technology" data-scene-mode="reveal" id="technology">
+    <div class="split-title">
+      <span class="index-mark">03 — Technology</span>
+      <span class="eyebrow">The future, now</span>
+      <h2>Technology<br>&amp; AI</h2>
+      <p>Where computing, capability and capital are converging next.</p>
+      <a class="text-link" href="category.html?category=Technology">See technology <span>→</span></a>
+    </div>
+    <div class="story-grid" data-section="Technology"></div>
+  </section>
+
+  <!-- ============ 7. BUSINESS ============ -->
+  <section class="scene" data-scene="business" data-scene-mode="reveal">
+    <div class="section-head">
+      <div><span class="eyebrow">Markets &amp; momentum</span><h2>Business</h2></div>
+      <a class="text-link" href="category.html?category=Business">See business <span>→</span></a>
+    </div>
+    <div class="ledger" data-section="Business"></div>
+  </section>
+
+  <!-- ============ 8. CULTURE & SPORT ============ -->
+  <section class="scene" data-scene="culture" data-scene-mode="reveal">
+    <div class="section-head">
+      <div><span class="eyebrow">Beyond the headlines</span><h2>Culture &amp; sport</h2></div>
+    </div>
+    <div class="culture-grid" data-section="Culture"></div>
+  </section>
+
+  <!-- ============ 9. RSS LIVE FEED ============ -->
+  <section class="scene" data-scene="live-feed" data-scene-mode="reveal">
+    <div class="section-head">
+      <div><span class="eyebrow live-pulse"><b></b><span id="live-feed-label">Today's edition</span></span><h2>Straight off the wire</h2></div>
+    </div>
+    <div class="feed-list" data-section="LiveFeed"></div>
+  </section>
+
+  <!-- ============ explore-by-signal strip ============ -->
+  <section class="scene categories" data-scene="explore" data-scene-mode="reveal" id="categories">
+    <span class="eyebrow">Explore by signal</span>
+    <h2>Find your next perspective.</h2>
+    <div class="category-pills">
+      <a href="category.html?category=India">India</a>
+      <a href="category.html?category=World">World</a>
+      <a href="category.html?category=Technology">Technology</a>
+      <a href="category.html?category=AI">AI</a>
+      <a href="category.html?category=Business">Business</a>
+      <a href="category.html?category=Sports">Sports</a>
+      <a href="category.html?category=Entertainment">Entertainment</a>
+    </div>
+  </section>
+
+  <!-- ============ 10. FINAL EDITORIAL ============ -->
+  <section class="closing-scene" data-reveal>
+    <p class="closing-line">Clarity is a discipline.<br><em>Nexora keeps it.</em></p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-brand">
+    <a class="brand text-logo" href="index.html">NEXORA</a>
+    <p>Global trends,<br>intelligently organized.</p>
+  </div>
+  <div class="footer-links">
+    <div><span>Explore</span><a href="#india">India</a><a href="#world">World</a><a href="briefing.html">Daily briefing</a><a href="category.html">Categories</a></div>
+    <div><span>Company</span><a href="about.html">About Nexora</a><a href="contact.html">Contact</a><a href="coming-soon.html?feature=Careers">Careers</a><a href="settings.html">Settings</a></div>
+    <div><span>Follow</span><a href="https://x.com" target="_blank" rel="noreferrer">X / Twitter ↗</a><a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram ↗</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Nexora, Inc.</span>
+    <div><a href="coming-soon.html?feature=Privacy">Privacy</a><a href="coming-soon.html?feature=Terms">Terms</a><a href="settings.html">Settings</a></div>
+  </div>
+</footer>
+
+<div class="search-overlay" hidden>
+  <div class="search-dialog" role="dialog" aria-modal="true" aria-label="Search Nexora">
+    <button class="icon-button close-search" aria-label="Close search">×</button>
+    <span class="eyebrow">Search Nexora</span>
+    <input id="trend-search" type="search" placeholder="Search headlines, topics or categories">
+    <div class="search-results" id="search-results">Start typing to search Nexora.</div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/scroll-engine.js"></script>
+<script src="js/live-rss.js"></script>
+</body>
+</html>

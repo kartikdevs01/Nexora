@@ -1,41 +1,53 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Nexora — Story</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/story-3d.css">
+<meta charset="utf-8">
+<script>try{var t=JSON.parse(localStorage.getItem('nexoraSettings')||'{}').theme;if(t==='light')document.documentElement.classList.add('light');}catch(e){}</script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nexora — Story</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="story-page">
-  <header class="topbar story-topbar">
-    <a class="brand" href="index.html" aria-label="Nexora home"><i>N</i>Nexora</a>
-    <nav class="desktop-nav" aria-label="Main navigation"><a href="index.html#india">India</a><a href="index.html#world">World</a><a href="briefing.html">Briefing</a></nav>
-    <div class="nav-actions"><a class="button compact" href="index.html">Home</a></div>
-  </header>
-  <main id="story-main">
-    <div class="story-ambient ambient-one" aria-hidden="true"></div><div class="story-ambient ambient-two" aria-hidden="true"></div>
-    <article class="story-experience" data-story-experience>
-      <section class="story-hero-3d" aria-labelledby="story-title">
-        <div class="hero-glass-layer hero-glass-back" aria-hidden="true"></div>
-        <div class="story-hero-media" id="story-media" hidden><img id="story-image" alt="" decoding="async"><div class="media-sheen" aria-hidden="true"></div></div>
-        <div class="story-hero-copy">
-          <div class="story-kicker"><span id="story-category">Story</span><span class="kicker-dot">•</span><span id="story-topic"></span></div>
-          <h1 id="story-title">Loading story…</h1>
-          <p class="story-dek" id="story-summary"></p>
-          <div class="story-details"><span id="story-source-name"></span><span id="story-time"></span><span id="story-read"></span></div>
-          <div id="story-source" class="story-cta"></div>
-        </div>
-      </section>
-      <div class="story-reading-shell">
-        <aside class="story-rail" aria-label="Story information"><span>01</span><i></i><span>READ</span></aside>
-        <div class="story-content">
-          <div id="story-body" class="story-body" aria-live="polite"></div>
-          <section class="story-context" id="story-context" hidden><span class="eyebrow">Why this matters</span><p id="story-context-text"></p></section>
-        </div>
+<body>
+<header class="topbar">
+  <a class="brand" href="index.html"><i>N</i>Nexora</a>
+  <nav class="desktop-nav">
+    <a href="index.html#india">India</a>
+    <a href="index.html#world">World</a>
+    <a href="briefing.html">Briefing</a>
+  </nav>
+  <div class="nav-actions">
+    <button class="theme-toggle" aria-pressed="false">Light mode</button>
+    <a class="button compact" href="index.html">Home</a>
+  </div>
+</header>
+<main>
+  <article class="story-enter">
+    <div class="article-hero">
+      <span class="eyebrow" id="story-meta"></span>
+      <h1 id="story-title"></h1>
+      <div class="article-meta-row">
+        <span id="story-source-line"></span>
+        <span id="story-date"></span>
+        <span id="story-read"></span>
       </div>
-    </article>
-  </main>
-  <footer class="story-footer"><div class="footer-bottom"><span>© 2026 Nexora, Inc.</span><div><a href="about.html">About</a><a href="contact.html">Contact</a></div></div></footer>
-  <script src="js/data.js"></script><script src="js/app.js"></script><script src="js/pages.js"></script>
-</body></html>
+      <div class="article-media" id="story-media" hidden><img id="story-image" alt=""></div>
+    </div>
+    <div class="article">
+      <p id="story-body"></p>
+      <div id="story-source"></div>
+    </div>
+  </article>
+</main>
+<footer>
+  <div class="footer-bottom">
+    <span>© 2026 Nexora, Inc.</span>
+    <div><a href="index.html">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+  </div>
+</footer>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/pages.js"></script>
+</body>
+</html>
