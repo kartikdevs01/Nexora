@@ -6,15 +6,14 @@ self.addEventListener("push", (event) => {
   } catch {
     data = {
       title: "NEXORA",
-      body: event.data ? event.data.text() : "A new story is available.",
+      body: "A new story is available.",
     };
   }
 
   const title = data.title || "NEXORA";
+
   const options = {
     body: data.body || "A new story is available.",
-    icon: "/icon-192.png",
-    badge: "/icon-192.png",
     data: {
       url: data.url || "/story.html",
     },
@@ -42,9 +41,7 @@ self.addEventListener("notificationclick", (event) => {
         }
       }
 
-      if (clients.openWindow) {
-        return clients.openWindow(url);
-      }
+      return clients.openWindow(url);
     })
   );
 });
