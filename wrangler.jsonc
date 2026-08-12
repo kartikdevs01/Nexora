@@ -1,0 +1,18 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "nexora",
+  "main": "./worker.js",
+  "compatibility_date": "2026-08-12",
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "nexoradb",
+      "database_id": "812b0d35-3334-405f-b202-053fce1f71f2"
+    }
+  ]
+}
