@@ -1,1 +1,11 @@
-:root{--bg:#111827;--surface:#182235;--surface2:#253148;--text:#f6f1e8;--muted:#b7bdc9;--line:#344155;--lime:#d1b77b}.light{--bg:#f7f4ec;--surface:#fffdf8;--surface2:#e9e4d9;--text:#172033;--muted:#5d6777;--line:#d4cebf;--lime:#8a6d32}.classic-bar{gap:25px}.classic-nav{display:flex;align-items:center;gap:21px}.classic-nav a{font-size:12px;text-decoration:none;color:var(--muted);position:relative;padding:8px 0}.classic-nav a:after{content:'';position:absolute;left:0;bottom:4px;width:0;height:1px;background:var(--lime);transition:width .25s}.classic-nav a:hover{color:var(--text)}.classic-nav a:hover:after{width:100%}.text-logo{font-family:Georgia,serif;font-size:21px;letter-spacing:.11em}.theme-toggle{width:auto;height:auto;padding:8px 10px;border:1px solid var(--line);border-radius:3px;background:transparent;color:var(--text);font-size:11px;cursor:pointer}.theme-toggle:hover{border-color:var(--lime);color:var(--lime)}@media(max-width:760px){.classic-nav{gap:13px;overflow:auto;max-width:calc(100vw - 125px)}.classic-nav a{font-size:11px;white-space:nowrap}.classic-bar{padding:0 16px}.classic-nav a:nth-child(3),.classic-nav a:nth-child(4){display:none}.theme-toggle{padding:7px}.text-logo{font-size:18px}}
+/* Legacy include, kept for pages that still link it.
+   Color tokens now live solely in styles.css :root / .light
+   so this file only carries the small classic-nav layout
+   tweaks that used to live here. Safe to keep or drop. */
+@media(max-width:900px){
+  /* full link list is already reachable via the menu drawer on mobile */
+  .classic-nav a{display:none}
+  .classic-nav{gap:8px}
+  .theme-toggle{padding:8px 10px;font-size:10px}
+  .text-logo{font-size:18px}
+}
