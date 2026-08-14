@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<script>try{var t=JSON.parse(localStorage.getItem('nexoraSettings')||'{}').theme;if(t==='light')document.documentElement.classList.add('light');}catch(e){}</script>
+<script>try{var s=JSON.parse(localStorage.getItem('nexoraSettings')||'{}');var t=s.theme;if(t==='light')t='ivory-coral';if(t==='dark')t='obsidian';if(!t)t='ivory-coral';document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Nexora — Story</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
