@@ -85,18 +85,48 @@
   });
 
   /* ---------------- theme ---------------- */
+  // Five palettes on the same variable contract (see css/styles.css).
+  // Ivory Coral is the default; Obsidian is the old dark theme, now optional.
+  const THEMES = [
+    { id: 'ivory-coral', name: 'Ivory Coral' },
+    { id: 'ocean-teal', name: 'Ocean Teal' },
+    { id: 'lavender-sky', name: 'Lavender Sky' },
+    { id: 'sage-gold', name: 'Sage Gold' },
+    { id: 'obsidian', name: 'Obsidian' },
+  ];
+  const THEME_IDS = THEMES.map(t => t.id);
+  const themeName = id => THEMES.find(t => t.id === id)?.name || id;
+
   const saved = JSON.parse(localStorage.getItem('nexoraSettings') || '{}');
+  // migrate old binary theme values from before the multi-theme system
+  if (saved.theme === 'light') saved.theme = 'ivory-coral';
+  if (saved.theme === 'dark') saved.theme = 'obsidian';
+
   const applyTheme = theme => {
-    const light = theme === 'light';
-    html.classList.toggle('light', light);
-    all('.theme-toggle').forEach(b => { b.textContent = light ? 'Dark mode' : 'Light mode'; b.setAttribute('aria-pressed', String(light)); });
+    if (!THEME_IDS.includes(theme)) theme = 'ivory-coral';
+    html.dataset.theme = theme;
+    all('.theme-toggle').forEach(b => {
+      b.textContent = themeName(theme);
+      b.setAttribute('aria-pressed', String(theme !== 'ivory-coral'));
+      b.setAttribute('aria-label', `Current theme ${themeName(theme)}. Click to switch to the next theme.`);
+    });
+    all('.theme-swatch').forEach(s => s.classList.toggle('active', s.dataset.theme === theme));
   };
-  applyTheme(saved.theme || (html.classList.contains('light') ? 'light' : 'dark'));
-  all('.theme-toggle').forEach(button => button.addEventListener('click', () => {
-    saved.theme = html.classList.contains('light') ? 'dark' : 'light';
+  applyTheme(saved.theme || html.dataset.theme || 'ivory-coral');
+
+  const setTheme = theme => {
+    saved.theme = theme;
     localStorage.setItem('nexoraSettings', JSON.stringify(saved));
-    applyTheme(saved.theme);
+    applyTheme(theme);
+  };
+  all('.theme-toggle').forEach(button => button.addEventListener('click', () => {
+    const next = THEME_IDS[(THEME_IDS.indexOf(html.dataset.theme) + 1) % THEME_IDS.length];
+    setTheme(next);
   }));
+  document.addEventListener('click', e => {
+    const swatch = e.target.closest('.theme-swatch');
+    if (swatch) setTheme(swatch.dataset.theme);
+  });
 
   /* ---------------- search ---------------- */
   const overlay = one('.search-overlay'), trigger = one('.search-trigger'), close = one('.close-search'),
