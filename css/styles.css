@@ -5,18 +5,25 @@
    so no JS has to change to pick up the new palette.
    ============================================================ */
 
+/* ============================================================
+   Theme system — 5 palettes on the SAME variable contract every
+   component already consumes (--bg, --surface, --lime, etc.), so
+   no component rule below has to change to gain new themes.
+   Default (:root, no data-theme attribute) = Ivory Coral.
+   Switch via html[data-theme="..."], set from js/app.js.
+   ============================================================ */
 :root{
-  /* -- core palette (dark, default) -- */
-  --bg:#0a0b0d;         /* graphite ink */
-  --bg2:#050506;         /* deeper layer, used for glass/tech sections */
-  --surface:#131419;
-  --surface2:#1b1d24;
-  --text:#f3f0e8;        /* warm bone */
-  --muted:#8f8b82;
-  --line:#26272c;
-  --lime:#e3b155;        /* "signal" — warm brass/amber accent (replaces old neon) */
-  --lime-ink:#171106;    /* text-on-accent */
-  --signal-2:#6fc6ff;    /* cool accent, technology section only */
+  /* -- Ivory Coral (default) -- */
+  --bg:#faf3e8;          /* warm ivory */
+  --bg2:#fffaf3;          /* soft champagne, deeper layer */
+  --surface:#fffdf9;
+  --surface2:#f4e6d6;     /* soft sand */
+  --text:#241a1f;         /* deep charcoal-navy */
+  --muted:#8a7a6c;
+  --line:#e9dac6;
+  --lime:#e0704f;         /* muted coral — primary accent */
+  --lime-ink:#fff8f1;     /* text-on-accent */
+  --signal-2:#1f7a72;     /* deep teal — secondary accent (technology section) */
 
   --serif:'Playfair Display',Georgia,serif;
   --sans:'DM Sans',sans-serif;
@@ -25,23 +32,64 @@
   --persp:1400px;
   font-size:16px;
 }
-.light{
-  --bg:#f6f3ea;
+[data-theme="ocean-teal"]{
+  --bg:#eef4f3;
   --bg2:#ffffff;
   --surface:#ffffff;
-  --surface2:#efece2;
-  --text:#171509;
-  --muted:#6b6659;
-  --line:#e1dccc;
-  --lime:#96762c;
-  --lime-ink:#fbf6ea;
-  --signal-2:#2f7fb0;
+  --surface2:#dfebe8;
+  --text:#132428;
+  --muted:#5c7278;
+  --line:#d3e2df;
+  --lime:#2e6f9e;         /* ocean blue */
+  --lime-ink:#f3faff;
+  --signal-2:#1f9e8f;     /* teal */
+}
+[data-theme="lavender-sky"]{
+  --bg:#f4f1f8;
+  --bg2:#ffffff;
+  --surface:#fdfbfe;
+  --surface2:#e8e0f2;
+  --text:#241f38;
+  --muted:#766d89;
+  --line:#e0d6ee;
+  --lime:#8b6fc9;         /* lavender / violet */
+  --lime-ink:#faf8ff;
+  --signal-2:#4e9bd1;     /* sky blue */
+}
+[data-theme="sage-gold"]{
+  --bg:#f4f5ea;
+  --bg2:#ffffff;
+  --surface:#fbfcf5;
+  --surface2:#e6ecd6;
+  --text:#20261a;
+  --muted:#6d7660;
+  --line:#dce4c9;
+  --lime:#c6a23a;         /* champagne gold */
+  --lime-ink:#241d09;
+  --signal-2:#6b8f5a;     /* sage green */
+}
+[data-theme="obsidian"]{
+  /* the original dark theme, kept as an optional pick rather than the default */
+  --bg:#0a0b0d;
+  --bg2:#050506;
+  --surface:#131419;
+  --surface2:#1b1d24;
+  --text:#f3f0e8;
+  --muted:#8f8b82;
+  --line:#26272c;
+  --lime:#e3b155;
+  --lime-ink:#171106;
+  --signal-2:#6fc6ff;
 }
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 html,body{overflow-x:clip}
 body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);transition:background-color .3s ease,color .3s ease}
+/* smooth, subtle theme swaps across the UI's most visible surfaces */
+.topbar,.menu-drawer,.search-dialog,.story-card,.featured-card,.ledger-row,.feed-row,
+.button,footer,.split-title,.card-art i,.setting,.result,.form input,.form textarea,
+.form select,.theme-swatch{transition:background-color .3s ease,border-color .3s ease,color .3s ease,box-shadow .3s ease}
 a{color:inherit}
 button{font:inherit}
 img{max-width:100%;display:block}
@@ -90,6 +138,7 @@ em{font-family:var(--serif);font-weight:600;font-style:italic}
 .button:hover{transform:translateY(-2px);box-shadow:0 10px 24px color-mix(in srgb,var(--lime) 25%,transparent)}
 .button.compact{padding:9px 12px;font-size:11px}
 .text-link{font-size:12px;text-decoration:none;font-weight:700;color:var(--text)}
+button.text-link{border:0;background:transparent;padding:0;cursor:pointer;font-family:var(--sans)}
 .text-link span{color:var(--lime);margin-left:5px;transition:margin .2s}
 .text-link:hover span{margin-left:9px}
 
@@ -330,6 +379,15 @@ footer{max-width:1500px;margin:auto;border-top:1px solid var(--line);padding:57p
 .setting{display:flex;justify-content:space-between;gap:25px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:20px}
 .setting p{margin:4px 0 0;font-size:12px;color:var(--muted)}
 .setting select{background:var(--surface);border:1px solid var(--line);color:var(--text);padding:9px 11px;border-radius:6px}
+.theme-swatches{display:flex;gap:10px;flex-wrap:wrap}
+.theme-swatch{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);border-radius:30px;padding:5px 12px 5px 5px;cursor:pointer;font:11px var(--sans);color:var(--muted)}
+.theme-swatch i{width:20px;height:20px;border-radius:50%;flex:none;border:1px solid #0002}
+.theme-swatch[data-theme="ivory-coral"] i{background:linear-gradient(135deg,#faf3e8,#e0704f)}
+.theme-swatch[data-theme="ocean-teal"] i{background:linear-gradient(135deg,#eef4f3,#2e6f9e)}
+.theme-swatch[data-theme="lavender-sky"] i{background:linear-gradient(135deg,#f4f1f8,#8b6fc9)}
+.theme-swatch[data-theme="sage-gold"] i{background:linear-gradient(135deg,#f4f5ea,#c6a23a)}
+.theme-swatch[data-theme="obsidian"] i{background:linear-gradient(135deg,#0a0b0d,#e3b155)}
+.theme-swatch.active{border-color:var(--text);color:var(--text)}
 .not-found{text-align:center;padding:20vh 20px}
 .not-found h1{font-size:clamp(90px,18vw,180px);line-height:.8;margin:20px}
 .source-card{max-width:640px;margin:12vh auto;padding:45px;background:var(--surface);border:1px solid var(--line);text-align:center;border-radius:10px}
